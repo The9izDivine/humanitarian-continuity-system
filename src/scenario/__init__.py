@@ -8,6 +8,9 @@ from src.scenario.orchestration import (
     ScenarioOrchestrationError,
     ScenarioRunResult,
 )
+from src.scenario.resource_overcommitment import (
+    ResourceOvercommitmentScenarioOrchestrator,
+)
 from src.scenario.world import (
     SyntheticWorld,
     SyntheticWorldBuilder,
@@ -17,6 +20,7 @@ from src.scenario.world import (
 __all__ = [
     "BlockedVolunteerScenarioOrchestrator",
     "ResidentialFireScenarioOrchestrator",
+    "ResourceOvercommitmentScenarioOrchestrator",
     "ScenarioOrchestrationError",
     "ScenarioRunResult",
     "SyntheticWorld",
