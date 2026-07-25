@@ -20,11 +20,18 @@ from src.flood.registry import (
     FloodReferenceValidation,
     FloodRegistryError,
 )
+from src.flood.world import (
+    FloodEvidenceValidation,
+    SyntheticFloodWorld,
+    SyntheticFloodWorldBuilder,
+    SyntheticFloodWorldError,
+)
 
 __all__ = [
     "CanonicalFloodObject",
     "EvacuationOrder",
     "FLOOD_MODEL_TYPES",
+    "FloodEvidenceValidation",
     "FloodIncident",
     "FloodModelError",
     "FloodObjectRegistry",
@@ -36,6 +43,9 @@ __all__ = [
     "Household",
     "RouteStatus",
     "ShelterAssignment",
+    "SyntheticFloodWorld",
+    "SyntheticFloodWorldBuilder",
+    "SyntheticFloodWorldError",
     "TransportationAsset",
     "WaterLevelObservation",
 ]
