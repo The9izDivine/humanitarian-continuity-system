@@ -1,0 +1,6 @@
+assumption_id,domain,statement,status,evidence_requirement,owner
+HCS-A-0001,incident,"A residential-fire scenario is suitable for the initial synthetic demonstration.",PROVISIONAL,"Public humanitarian-domain research and scenario validation",The9izDivine
+HCS-A-0002,volunteer,"Training validity is relevant to assignment readiness.",PROVISIONAL,"Domain-expert validation",The9izDivine
+HCS-A-0003,resources,"Recorded inventory may differ from currently deployable inventory.",PROVISIONAL,"Operational validation",The9izDivine
+HCS-A-0004,dispatch,"Authorization may become stale before attempted dispatch.",PROVISIONAL,"Operational validation",The9izDivine
+HCS-A-0005,recovery,"Case closure may occur while individual needs remain unresolved.",PROVISIONAL,"Domain-expert validation",The9izDivine

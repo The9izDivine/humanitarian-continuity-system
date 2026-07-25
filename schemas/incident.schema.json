@@ -1,0 +1,107 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://the9izdivine.github.io/humanitarian-continuity-system/schemas/incident.schema.json",
+"title": "Incident",
+"type": "object",
+"additionalProperties": false,
+"required": [
+"schema_version",
+"incident_id",
+"reported_at",
+"incident_type",
+"location",
+"verification_status",
+"data_classification"
+],
+"properties": {
+"schema_version": {
+"const": "1.0.0"
+},
+"incident_id": {
+"type": "string",
+"pattern": "^INC-[0-9]{6}$"
+},
+"reported_at": {
+"type": "string",
+"format": "date-time"
+},
+"reported_by": {
+"type": ["string", "null"]
+},
+"incident_type": {
+"type": "string",
+"enum": [
+"RESIDENTIAL_FIRE",
+"FLOOD",
+"SEVERE_WEATHER",
+"SHELTER_SUPPORT",
+"OTHER"
+]
+},
+"location": {
+"type": "object",
+"additionalProperties": false,
+"required": ["general_area"],
+"properties": {
+"general_area": {
+"type": "string",
+"minLength": 1
+},
+"jurisdiction": {
+"type": ["string", "null"]
+},
+"exact_address_prohibited": {
+"const": true
+}
+}
+},
+"estimated_households": {
+"type": ["integer", "null"],
+"minimum": 0
+},
+"estimated_people": {
+"type": ["integer", "null"],
+"minimum": 0
+},
+"known_injuries": {
+"type": ["integer", "null"],
+"minimum": 0
+},
+"immediate_hazards": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"source": {
+"type": ["string", "null"]
+},
+"confidence": {
+"type": ["number", "null"],
+"minimum": 0,
+"maximum": 1
+},
+"verification_status": {
+"type": "string",
+"enum": [
+"REPORTED",
+"PARTIALLY_VERIFIED",
+"VERIFIED",
+"DUPLICATE",
+"CANCELLED",
+"CLOSED"
+]
+},
+"data_classification": {
+"type": "string",
+"enum": [
+"PUBLIC_SYNTHETIC",
+"INTERNAL_SYNTHETIC"
+]
+},
+"notes": {
+"type": ["string", "null"]
+}
+}
+}

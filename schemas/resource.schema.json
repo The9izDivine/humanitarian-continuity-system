@@ -1,0 +1,93 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://the9izdivine.github.io/humanitarian-continuity-system/schemas/resource.schema.json",
+"title": "Resource",
+"type": "object",
+"additionalProperties": false,
+"required": [
+"schema_version",
+"resource_id",
+"resource_type",
+"quantity_recorded",
+"quantity_verified",
+"reserved_quantity",
+"condition",
+"verification_status",
+"data_classification"
+],
+"properties": {
+"schema_version": {
+"const": "1.0.0"
+},
+"resource_id": {
+"type": "string",
+"pattern": "^RES-[0-9]{6}$"
+},
+"resource_type": {
+"type": "string",
+"minLength": 1
+},
+"quantity_recorded": {
+"type": "number",
+"minimum": 0
+},
+"quantity_verified": {
+"type": "number",
+"minimum": 0
+},
+"reserved_quantity": {
+"type": "number",
+"minimum": 0
+},
+"available_quantity": {
+"type": "number",
+"minimum": 0
+},
+"condition": {
+"type": "string",
+"enum": [
+"ACCEPTABLE",
+"DAMAGED",
+"EXPIRED",
+"UNKNOWN"
+]
+},
+"storage_location": {
+"type": ["string", "null"]
+},
+"custodian": {
+"type": ["string", "null"]
+},
+"transport_required": {
+"type": "boolean"
+},
+"transport_available": {
+"type": ["boolean", "null"]
+},
+"last_inspected_at": {
+"type": ["string", "null"],
+"format": "date-time"
+},
+"verification_status": {
+"type": "string",
+"enum": [
+"AVAILABLE",
+"AVAILABLE_WITH_CONDITIONS",
+"RESERVED",
+"IN_TRANSIT",
+"UNVERIFIED",
+"DAMAGED",
+"EXPIRED",
+"DEPLETED",
+"INACCESSIBLE"
+]
+},
+"data_classification": {
+"type": "string",
+"enum": [
+"PUBLIC_SYNTHETIC",
+"INTERNAL_SYNTHETIC"
+]
+}
+}
+}

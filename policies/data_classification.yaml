@@ -1,0 +1,30 @@
+policy_id: HCS-POL-DATA-001
+version: 1.0.0
+status: ACTIVE
+
+classes:
+PUBLIC_SYNTHETIC:
+allowed: true
+public_repository: true
+INTERNAL_SYNTHETIC:
+allowed: true
+public_repository: false
+RESTRICTED_TEST:
+allowed: false
+authorization_required: true
+PROHIBITED_REAL_DATA:
+allowed: false
+commit_prohibited: true
+
+prohibited_content:
+
+real_names
+exact_home_addresses
+telephone_numbers
+personal_email_addresses
+medical_records
+government_identifiers
+real_volunteer_records
+real_beneficiary_records
+authentication_secrets
+private_organizational_records

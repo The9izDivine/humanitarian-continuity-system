@@ -1,0 +1,109 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://the9izdivine.github.io/humanitarian-continuity-system/schemas/volunteer.schema.json",
+"title": "Synthetic Volunteer",
+"type": "object",
+"additionalProperties": false,
+"required": [
+"schema_version",
+"volunteer_id",
+"role",
+"training_status",
+"credential_status",
+"availability",
+"contactability",
+"supervisor_authorization",
+"data_classification"
+],
+"properties": {
+"schema_version": {
+"const": "1.0.0"
+},
+"volunteer_id": {
+"type": "string",
+"pattern": "^VOL-[0-9]{6}$"
+},
+"role": {
+"type": "string",
+"minLength": 1
+},
+"training_status": {
+"type": "string",
+"enum": [
+"VALID",
+"EXPIRED",
+"MISSING",
+"PENDING_VERIFICATION"
+]
+},
+"credential_status": {
+"type": "string",
+"enum": [
+"VALID",
+"EXPIRED",
+"NOT_REQUIRED",
+"MISSING",
+"PENDING_VERIFICATION"
+]
+},
+"background_check_status": {
+"type": "string",
+"enum": [
+"SATISFIED",
+"NOT_REQUIRED",
+"FAILED",
+"PENDING_VERIFICATION",
+"UNKNOWN"
+]
+},
+"availability": {
+"type": "string",
+"enum": [
+"AVAILABLE",
+"UNAVAILABLE",
+"CONDITIONAL",
+"UNKNOWN"
+]
+},
+"contactability": {
+"type": "string",
+"enum": [
+"CONFIRMED",
+"UNREACHABLE",
+"UNCONFIRMED"
+]
+},
+"supervisor_authorization": {
+"type": "string",
+"enum": [
+"VALID",
+"EXPIRED",
+"MISSING",
+"NOT_REQUIRED"
+]
+},
+"conflicting_assignment": {
+"type": "boolean"
+},
+"fatigue_status": {
+"type": "string",
+"enum": [
+"ACCEPTABLE",
+"REVIEW_REQUIRED",
+"BLOCKED",
+"UNKNOWN"
+]
+},
+"last_verified_at": {
+"type": ["string", "null"],
+"format": "date-time"
+},
+"data_classification": {
+"type": "string",
+"enum": [
+"PUBLIC_SYNTHETIC",
+"INTERNAL_SYNTHETIC"
+]
+}
+}
+}

@@ -1,0 +1,28 @@
+policy_id: HCS-POL-ELIGIBILITY-001
+version: 1.0.0
+status: PROTOTYPE
+scope: synthetic_volunteer_readiness
+
+mandatory_conditions:
+
+TRAINING_VALID
+CREDENTIAL_VALID_OR_NOT_REQUIRED
+BACKGROUND_REQUIREMENT_SATISFIED_OR_NOT_REQUIRED
+CURRENTLY_AVAILABLE
+ROLE_MATCH
+CONTACTABLE
+SUPERVISOR_AUTHORIZED_OR_NOT_REQUIRED
+NO_CONFLICTING_ASSIGNMENT
+FATIGUE_ACCEPTABLE
+
+outcomes:
+all_mandatory_satisfied: ELIGIBLE
+nonblocking_condition_present: CONDITIONALLY_ELIGIBLE
+blocking_condition_present: INELIGIBLE
+mandatory_verification_pending: PENDING_VERIFICATION
+mandatory_information_missing: INSUFFICIENT_INFORMATION
+training_or_credential_expired: EXPIRED
+availability_false: UNAVAILABLE
+
+fail_closed: true
+synthetic_data_only: true

@@ -1,0 +1,97 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://the9izdivine.github.io/humanitarian-continuity-system/schemas/response_plan.schema.json",
+"title": "Response Plan",
+"type": "object",
+"additionalProperties": false,
+"required": [
+"schema_version",
+"response_plan_id",
+"incident_id",
+"assigned_volunteer_ids",
+"assigned_resource_ids",
+"required_roles",
+"approving_authority",
+"authority_valid_until",
+"plan_status"
+],
+"properties": {
+"schema_version": {
+"const": "1.0.0"
+},
+"response_plan_id": {
+"type": "string",
+"pattern": "^PLAN-[0-9]{6}$"
+},
+"incident_id": {
+"type": "string",
+"pattern": "^INC-[0-9]{6}$"
+},
+"assigned_volunteer_ids": {
+"type": "array",
+"items": {
+"type": "string",
+"pattern": "^VOL-[0-9]{6}$"
+},
+"uniqueItems": true
+},
+"assigned_resource_ids": {
+"type": "array",
+"items": {
+"type": "string",
+"pattern": "^RES-[0-9]{6}$"
+},
+"uniqueItems": true
+},
+"required_roles": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"minItems": 1,
+"uniqueItems": true
+},
+"objectives": {
+"type": "array",
+"items": {
+"type": "string"
+}
+},
+"approving_authority": {
+"type": "string",
+"minLength": 1
+},
+"authority_valid_until": {
+"type": "string",
+"format": "date-time"
+},
+"communications_confirmed": {
+"type": "boolean"
+},
+"transport_available": {
+"type": "boolean"
+},
+"safety_conditions_acceptable": {
+"type": "boolean"
+},
+"superseded_by": {
+"type": ["string", "null"],
+"pattern": "^PLAN-[0-9]{6}$"
+},
+"plan_status": {
+"type": "string",
+"enum": [
+"DRAFT",
+"UNDER_REVIEW",
+"AUTHORIZED",
+"CONDITIONALLY_AUTHORIZED",
+"READY",
+"BLOCKED",
+"DISPATCHED",
+"SUPERSEDED",
+"CANCELLED",
+"COMPLETED"
+]
+}
+}
+}

@@ -1,0 +1,32 @@
+policy_id: HCS-POL-RESOURCE-001
+version: 1.0.0
+status: DEMONSTRATION_ASSUMPTION
+scope: resource_depletion
+
+formula:
+numerator: committed_quantity
+denominator: verified_available_quantity
+
+thresholds:
+
+minimum: 0.00
+maximum: 0.49
+status: STABLE
+minimum: 0.50
+maximum: 0.74
+status: ELEVATED
+minimum: 0.75
+maximum: 0.89
+status: CRITICAL
+minimum: 0.90
+maximum: 1.00
+status: EXHAUSTION_IMMINENT
+minimum_exclusive: 1.00
+status: OVERCOMMITTED
+
+zero_denominator_rule:
+zero_commitment: DEPLETED
+positive_commitment: OVERCOMMITTED
+
+external_policy_claim: false
+synthetic_data_only: true

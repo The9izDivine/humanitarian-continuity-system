@@ -1,0 +1,88 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://the9izdivine.github.io/humanitarian-continuity-system/schemas/dispatch_decision.schema.json",
+"title": "Dispatch Decision",
+"type": "object",
+"additionalProperties": false,
+"required": [
+"schema_version",
+"decision_id",
+"response_plan_id",
+"decision",
+"decided_at",
+"decision_basis",
+"evaluated_conditions",
+"failed_conditions",
+"unknown_conditions",
+"approving_actor",
+"evidence_references"
+],
+"properties": {
+"schema_version": {
+"const": "1.0.0"
+},
+"decision_id": {
+"type": "string",
+"pattern": "^DEC-[0-9]{6}$"
+},
+"response_plan_id": {
+"type": "string",
+"pattern": "^PLAN-[0-9]{6}$"
+},
+"decision": {
+"type": "string",
+"enum": [
+"CLEARED_FOR_DISPATCH",
+"CLEARED_WITH_CONDITIONS",
+"HELD_FOR_REVIEW",
+"BLOCKED",
+"SUPERSEDED",
+"INSUFFICIENT_EVIDENCE"
+]
+},
+"decided_at": {
+"type": "string",
+"format": "date-time"
+},
+"valid_until": {
+"type": ["string", "null"],
+"format": "date-time"
+},
+"decision_basis": {
+"type": "string",
+"minLength": 1
+},
+"evaluated_conditions": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"failed_conditions": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"unknown_conditions": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"approving_actor": {
+"type": "string",
+"minLength": 1
+},
+"evidence_references": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+}
+}
+}

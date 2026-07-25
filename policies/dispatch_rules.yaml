@@ -1,0 +1,30 @@
+policy_id: HCS-POL-DISPATCH-001
+version: 1.0.0
+status: PROTOTYPE
+scope: dispatch_assurance
+
+mandatory_checks:
+
+INCIDENT_ACTIVE
+LOCATION_SUFFICIENT
+REQUIRED_ROLES_FILLED
+VOLUNTEERS_CURRENTLY_ELIGIBLE
+RESOURCES_CURRENTLY_AVAILABLE
+SAFETY_CONDITIONS_ACCEPTABLE
+AUTHORITY_CURRENT
+COMMUNICATIONS_CONFIRMED
+TRANSPORT_AVAILABLE
+PLAN_NOT_SUPERSEDED
+
+outcomes:
+all_mandatory_satisfied: CLEARED_FOR_DISPATCH
+all_mandatory_satisfied_with_explicit_conditions: CLEARED_WITH_CONDITIONS
+human_judgment_required: HELD_FOR_REVIEW
+blocking_condition_present: BLOCKED
+plan_superseded: SUPERSEDED
+mandatory_evidence_missing: INSUFFICIENT_EVIDENCE
+
+fail_closed: true
+decision_validity_minutes: 30
+revalidation_required_on_material_change: true
+synthetic_data_only: true
