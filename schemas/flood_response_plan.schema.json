@@ -1,0 +1,120 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_response_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authority_valid_until": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evacuation_order_ids": {
+      "items": {
+        "pattern": "^EVO-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "incident_id": {
+      "pattern": "^FLI-[0-9]{6}$",
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^FRP-[0-9]{6}$",
+      "type": "string"
+    },
+    "plan_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "route_ids": {
+      "items": {
+        "pattern": "^RTE-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "shelter_assignment_ids": {
+      "items": {
+        "pattern": "^SHA-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "superseded_by": {
+      "anyOf": [
+        {
+          "pattern": "^FRP-[0-9]{6}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "transportation_asset_ids": {
+      "items": {
+        "pattern": "^TRN-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "zone_ids": {
+      "items": {
+        "pattern": "^FLZ-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "incident_id",
+    "zone_ids",
+    "evacuation_order_ids",
+    "route_ids",
+    "transportation_asset_ids",
+    "shelter_assignment_ids",
+    "plan_status",
+    "authority_valid_until",
+    "superseded_by"
+  ],
+  "title": "flood_response_plan",
+  "type": "object"
+}

@@ -1,0 +1,73 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_transportation_asset.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accessible_capacity": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "asset_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "assigned_plan_id": {
+      "anyOf": [
+        {
+          "pattern": "^FRP-[0-9]{6}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capacity": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^TRN-[0-9]{6}$",
+      "type": "string"
+    },
+    "readiness_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "asset_type",
+    "capacity",
+    "accessible_capacity",
+    "readiness_status",
+    "assigned_plan_id"
+  ],
+  "title": "flood_transportation_asset",
+  "type": "object"
+}

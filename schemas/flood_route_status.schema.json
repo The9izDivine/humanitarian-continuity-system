@@ -1,0 +1,70 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_route_status.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accessible_transport_supported": {
+      "type": "boolean"
+    },
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capacity_per_hour": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "last_verified_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^RTE-[0-9]{6}$",
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "route_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "viability_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "zone_id": {
+      "pattern": "^FLZ-[0-9]{6}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "zone_id",
+    "route_name",
+    "viability_status",
+    "accessible_transport_supported",
+    "capacity_per_hour",
+    "last_verified_at"
+  ],
+  "title": "flood_route_status",
+  "type": "object"
+}

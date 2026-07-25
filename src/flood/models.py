@@ -58,9 +58,33 @@ class CanonicalFloodObject:
                 )
 
     def to_dict(self) -> dict[str, Any]:
-        """Return a deterministic dictionary representation."""
+        """Return a JSON-compatible deterministic dictionary."""
 
-        return asdict(self)
+        return self._normalize_json_value(asdict(self))
+
+    @classmethod
+    def _normalize_json_value(cls, value: Any) -> Any:
+        """Convert immutable Python containers into JSON containers."""
+
+        if isinstance(value, tuple):
+            return [
+                cls._normalize_json_value(item)
+                for item in value
+            ]
+
+        if isinstance(value, list):
+            return [
+                cls._normalize_json_value(item)
+                for item in value
+            ]
+
+        if isinstance(value, dict):
+            return {
+                key: cls._normalize_json_value(item)
+                for key, item in value.items()
+            }
+
+        return value
 
     def to_json(self) -> str:
         """Return canonical deterministic JSON."""

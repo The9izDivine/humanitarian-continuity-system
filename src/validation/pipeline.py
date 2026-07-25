@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from src.scenario.world import SyntheticWorld
 from src.validation.schemas import (
     SchemaRegistry,
     ValidationResult,
 )
+
+if TYPE_CHECKING:
+    from src.scenario.world import SyntheticWorld
 
 
 class ValidationPipelineError(ValueError):

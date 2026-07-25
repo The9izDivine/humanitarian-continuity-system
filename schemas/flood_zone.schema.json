@@ -1,0 +1,70 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_zone.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accessibility_constraints": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evacuation_required": {
+      "type": "boolean"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "hazard_level": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "incident_id": {
+      "pattern": "^FLI-[0-9]{6}$",
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^FLZ-[0-9]{6}$",
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "zone_name": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "incident_id",
+    "zone_name",
+    "hazard_level",
+    "evacuation_required",
+    "accessibility_constraints"
+  ],
+  "title": "flood_zone",
+  "type": "object"
+}

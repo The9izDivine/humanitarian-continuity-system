@@ -1,0 +1,71 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_water_level_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "incident_id": {
+      "pattern": "^FLI-[0-9]{6}$",
+      "type": "string"
+    },
+    "level_meters": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^WLO-[0-9]{6}$",
+      "type": "string"
+    },
+    "observed_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trend": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "verification_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "zone_id": {
+      "pattern": "^FLZ-[0-9]{6}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "incident_id",
+    "zone_id",
+    "level_meters",
+    "trend",
+    "verification_state",
+    "observed_at"
+  ],
+  "title": "flood_water_level_observation",
+  "type": "object"
+}

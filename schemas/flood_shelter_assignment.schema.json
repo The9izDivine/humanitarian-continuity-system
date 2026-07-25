@@ -1,0 +1,72 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_shelter_assignment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accessible_space_required": {
+      "type": "boolean"
+    },
+    "assignment_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "completed_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "household_id": {
+      "pattern": "^HHD-[0-9]{6}$",
+      "type": "string"
+    },
+    "intake_authority_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^SHA-[0-9]{6}$",
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "shelter_id": {
+      "pattern": "^SHL-[0-9]{6}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "household_id",
+    "shelter_id",
+    "assignment_status",
+    "accessible_space_required",
+    "intake_authority_status",
+    "completed_at"
+  ],
+  "title": "flood_shelter_assignment",
+  "type": "object"
+}

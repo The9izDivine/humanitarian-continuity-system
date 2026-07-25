@@ -1,0 +1,80 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_evacuation_order.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "incident_id": {
+      "pattern": "^FLI-[0-9]{6}$",
+      "type": "string"
+    },
+    "issued_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^EVO-[0-9]{6}$",
+      "type": "string"
+    },
+    "order_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "superseded_by": {
+      "anyOf": [
+        {
+          "pattern": "^EVO-[0-9]{6}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "valid_until": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "zone_id": {
+      "pattern": "^FLZ-[0-9]{6}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "incident_id",
+    "zone_id",
+    "order_status",
+    "issued_at",
+    "valid_until",
+    "superseded_by"
+  ],
+  "title": "flood_evacuation_order",
+  "type": "object"
+}

@@ -1,0 +1,69 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_incident.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "affected_zone_ids": {
+      "items": {
+        "pattern": "^FLZ-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "incident_type": {
+      "const": "FLOOD"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "material_change_detected": {
+      "type": "boolean"
+    },
+    "object_id": {
+      "pattern": "^FLI-[0-9]{6}$",
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "severity": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "verification_status": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "incident_type",
+    "severity",
+    "verification_status",
+    "affected_zone_ids",
+    "material_change_detected"
+  ],
+  "title": "flood_incident",
+  "type": "object"
+}

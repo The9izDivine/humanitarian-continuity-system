@@ -1,0 +1,64 @@
+{
+  "$id": "https://github.com/The9izDivine/humanitarian-continuity-system/schemas/flood_household.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_source": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evacuation_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EV-[0-9]{6}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "household_size": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "mobility_support_required": {
+      "type": "boolean"
+    },
+    "object_id": {
+      "pattern": "^HHD-[0-9]{6}$",
+      "type": "string"
+    },
+    "recorded_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transport_required": {
+      "type": "boolean"
+    },
+    "zone_id": {
+      "pattern": "^FLZ-[0-9]{6}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "lifecycle_state",
+    "authority_source",
+    "evidence_ids",
+    "recorded_at",
+    "zone_id",
+    "household_size",
+    "mobility_support_required",
+    "transport_required",
+    "evacuation_status"
+  ],
+  "title": "flood_household",
+  "type": "object"
+}
