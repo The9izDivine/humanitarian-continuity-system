@@ -1,30 +1,58 @@
 policy_id: HCS-POL-DATA-001
 version: 1.0.0
 status: ACTIVE
+scope: repository_data_governance
 
 classes:
-PUBLIC_SYNTHETIC:
-allowed: true
-public_repository: true
-INTERNAL_SYNTHETIC:
-allowed: true
-public_repository: false
-RESTRICTED_TEST:
-allowed: false
-authorization_required: true
-PROHIBITED_REAL_DATA:
-allowed: false
-commit_prohibited: true
+  PUBLIC_SYNTHETIC:
+    allowed: true
+    public_repository: true
+    description: Fabricated information approved for public demonstration.
+
+  INTERNAL_SYNTHETIC:
+    allowed: true
+    public_repository: false
+    description: Fabricated information restricted from public publication.
+
+  RESTRICTED_TEST:
+    allowed: false
+    authorization_required: true
+    description: Restricted test information requiring explicit authorization.
+
+  PROHIBITED_REAL_DATA:
+    allowed: false
+    commit_prohibited: true
+    immediate_removal_required: true
+    description: Real personal, humanitarian, organizational, or secret data.
+
+permitted_classes:
+  - PUBLIC_SYNTHETIC
+  - INTERNAL_SYNTHETIC
 
 prohibited_content:
+  - real_names
+  - exact_home_addresses
+  - telephone_numbers
+  - personal_email_addresses
+  - medical_records
+  - disability_details_linked_to_real_people
+  - immigration_information
+  - financial_assistance_records
+  - government_identifiers
+  - real_case_numbers
+  - real_volunteer_records
+  - real_beneficiary_records
+  - background_check_results
+  - authentication_secrets
+  - api_tokens
+  - private_keys
+  - private_organizational_records
+  - protected_humanitarian_records
 
-real_names
-exact_home_addresses
-telephone_numbers
-personal_email_addresses
-medical_records
-government_identifiers
-real_volunteer_records
-real_beneficiary_records
-authentication_secrets
-private_organizational_records
+unknown_data_rule:
+  default_classification: PROHIBITED_REAL_DATA
+  fail_closed: true
+  manual_review_required: true
+
+synthetic_data_only: true
+operational_use_authorized: false

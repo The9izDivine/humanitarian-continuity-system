@@ -1,0 +1,32 @@
+policy_id: HCS-POL-RETENTION-001
+version: 1.0.0
+status: ACTIVE
+scope: synthetic_repository_data
+
+rules:
+  canonical_examples:
+    retain: true
+    purpose:
+      - reproducibility
+      - testing
+      - demonstration
+
+  generated_runtime_data:
+    retain: false
+    git_commit: false
+
+  decision_evidence:
+    retain: true
+    immutable_history_required: true
+
+  superseded_records:
+    retain: true
+    deletion_prohibited: true
+
+  prohibited_real_data:
+    retain: false
+    immediate_removal_required: true
+    incident_review_required: true
+
+synthetic_data_only: true
+operational_use_authorized: false
