@@ -1,5 +1,8 @@
 """Synthetic scenario package exports."""
 
+from src.scenario.blocked_volunteer import (
+    BlockedVolunteerScenarioOrchestrator,
+)
 from src.scenario.orchestration import (
     ResidentialFireScenarioOrchestrator,
     ScenarioOrchestrationError,
@@ -12,6 +15,7 @@ from src.scenario.world import (
 )
 
 __all__ = [
+    "BlockedVolunteerScenarioOrchestrator",
     "ResidentialFireScenarioOrchestrator",
     "ScenarioOrchestrationError",
     "ScenarioRunResult",
