@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the9izdivine.github.io/humanitarian-continuity-system/schemas/delivery_record.schema.json",
+  "title": "Delivery Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "delivery_record_id",
+    "incident_id",
+    "response_plan_id",
+    "household_id",
+    "recorded_at",
+    "outcome",
+    "assistance_items",
+    "evidence_references",
+    "data_classification"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "delivery_record_id": {
+      "type": "string",
+      "pattern": "^DEL-[0-9]{6}$"
+    },
+    "incident_id": {
+      "type": "string",
+      "pattern": "^INC-[0-9]{6}$"
+    },
+    "response_plan_id": {
+      "type": "string",
+      "pattern": "^PLAN-[0-9]{6}$"
+    },
+    "household_id": {
+      "type": "string",
+      "pattern": "^HH-[0-9]{6}$"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "DELIVERED",
+        "PARTIALLY_DELIVERED",
+        "NOT_DELIVERED",
+        "REFUSED",
+        "REFERRED",
+        "REVERSED",
+        "UNKNOWN",
+        "UNVERIFIED"
+      ]
+    },
+    "assistance_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "quantity_authorized",
+          "quantity_delivered",
+          "outcome"
+        ],
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "quantity_authorized": {
+            "type": "number",
+            "minimum": 0
+          },
+          "quantity_delivered": {
+            "type": "number",
+            "minimum": 0
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "DELIVERED",
+              "PARTIALLY_DELIVERED",
+              "NOT_DELIVERED",
+              "REFUSED",
+              "REFERRED",
+              "REVERSED",
+              "UNKNOWN",
+              "UNVERIFIED"
+            ]
+          }
+        }
+      }
+    },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "data_classification": {
+      "type": "string",
+      "enum": [
+        "PUBLIC_SYNTHETIC",
+        "INTERNAL_SYNTHETIC"
+      ]
+    }
+  }
+}

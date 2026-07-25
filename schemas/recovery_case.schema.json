@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the9izdivine.github.io/humanitarian-continuity-system/schemas/recovery_case.schema.json",
+  "title": "Recovery Case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "recovery_case_id",
+    "incident_id",
+    "household_id",
+    "state",
+    "unresolved_need_ids",
+    "opened_at",
+    "data_classification"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "recovery_case_id": {
+      "type": "string",
+      "pattern": "^RC-[0-9]{6}$"
+    },
+    "incident_id": {
+      "type": "string",
+      "pattern": "^INC-[0-9]{6}$"
+    },
+    "household_id": {
+      "type": "string",
+      "pattern": "^HH-[0-9]{6}$"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "FOLLOW_UP_REQUIRED",
+        "FOLLOW_UP_SCHEDULED",
+        "CONTACT_ATTEMPTED",
+        "CONTACT_CONFIRMED",
+        "REFERRED_TO_SERVICE",
+        "SERVICE_ACCEPTED",
+        "SERVICE_DECLINED",
+        "NEED_RESOLVED",
+        "NEED_UNRESOLVED",
+        "CASE_CLOSED",
+        "CASE_REOPENED"
+      ]
+    },
+    "unresolved_need_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^NEED-[0-9]{6}$"
+      },
+      "uniqueItems": true
+    },
+    "opened_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "closed_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "closure_reason": {
+      "type": ["string", "null"]
+    },
+    "closure_authority": {
+      "type": ["string", "null"]
+    },
+    "data_classification": {
+      "type": "string",
+      "enum": [
+        "PUBLIC_SYNTHETIC",
+        "INTERNAL_SYNTHETIC"
+      ]
+    }
+  }
+}

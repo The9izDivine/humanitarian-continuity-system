@@ -1,0 +1,19 @@
+"""
+Canonical constants shared across the runtime.
+"""
+
+SCHEMA_VERSION = "1.0.0"
+
+DATA_CLASSES = (
+    "PUBLIC_SYNTHETIC",
+    "INTERNAL_SYNTHETIC",
+)
+
+DECISIONS = (
+    "CLEARED_FOR_DISPATCH",
+    "CLEARED_WITH_CONDITIONS",
+    "HELD_FOR_REVIEW",
+    "BLOCKED",
+    "SUPERSEDED",
+    "INSUFFICIENT_EVIDENCE",
+)

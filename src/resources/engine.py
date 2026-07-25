@@ -1,0 +1,3 @@
+"""
+Resource evaluation placeholder.
+"""
