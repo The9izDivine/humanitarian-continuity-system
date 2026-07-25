@@ -1,0 +1,1 @@
+"""Residential-fire response assurance demonstration."""

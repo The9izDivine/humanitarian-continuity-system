@@ -1,5 +1,10 @@
 """Synthetic scenario package exports."""
 
+from src.scenario.orchestration import (
+    ResidentialFireScenarioOrchestrator,
+    ScenarioOrchestrationError,
+    ScenarioRunResult,
+)
 from src.scenario.world import (
     SyntheticWorld,
     SyntheticWorldBuilder,
@@ -7,6 +12,9 @@ from src.scenario.world import (
 )
 
 __all__ = [
+    "ResidentialFireScenarioOrchestrator",
+    "ScenarioOrchestrationError",
+    "ScenarioRunResult",
     "SyntheticWorld",
     "SyntheticWorldBuilder",
     "SyntheticWorldError",

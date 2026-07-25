@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from src.scenario import SyntheticWorld
+from src.scenario.world import SyntheticWorld
 from src.validation.schemas import (
     SchemaRegistry,
     ValidationResult,
