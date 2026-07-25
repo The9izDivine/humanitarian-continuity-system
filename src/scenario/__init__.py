@@ -1,5 +1,8 @@
 """Synthetic scenario package exports."""
 
+from src.scenario.authority_expiration import (
+    AuthorityExpirationScenarioOrchestrator,
+)
 from src.scenario.blocked_volunteer import (
     BlockedVolunteerScenarioOrchestrator,
 )
@@ -18,6 +21,7 @@ from src.scenario.world import (
 )
 
 __all__ = [
+    "AuthorityExpirationScenarioOrchestrator",
     "BlockedVolunteerScenarioOrchestrator",
     "ResidentialFireScenarioOrchestrator",
     "ResourceOvercommitmentScenarioOrchestrator",
