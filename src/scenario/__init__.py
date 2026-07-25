@@ -6,6 +6,9 @@ from src.scenario.authority_expiration import (
 from src.scenario.blocked_volunteer import (
     BlockedVolunteerScenarioOrchestrator,
 )
+from src.scenario.insufficient_evidence import (
+    InsufficientEvidenceScenarioOrchestrator,
+)
 from src.scenario.orchestration import (
     ResidentialFireScenarioOrchestrator,
     ScenarioOrchestrationError,
@@ -26,6 +29,7 @@ from src.scenario.world import (
 __all__ = [
     "AuthorityExpirationScenarioOrchestrator",
     "BlockedVolunteerScenarioOrchestrator",
+    "InsufficientEvidenceScenarioOrchestrator",
     "ResidentialFireScenarioOrchestrator",
     "ResourceOvercommitmentScenarioOrchestrator",
     "ScenarioOrchestrationError",
