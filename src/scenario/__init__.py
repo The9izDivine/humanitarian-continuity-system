@@ -14,6 +14,9 @@ from src.scenario.orchestration import (
 from src.scenario.resource_overcommitment import (
     ResourceOvercommitmentScenarioOrchestrator,
 )
+from src.scenario.superseded_plan import (
+    SupersededPlanScenarioOrchestrator,
+)
 from src.scenario.world import (
     SyntheticWorld,
     SyntheticWorldBuilder,
@@ -27,6 +30,7 @@ __all__ = [
     "ResourceOvercommitmentScenarioOrchestrator",
     "ScenarioOrchestrationError",
     "ScenarioRunResult",
+    "SupersededPlanScenarioOrchestrator",
     "SyntheticWorld",
     "SyntheticWorldBuilder",
     "SyntheticWorldError",
