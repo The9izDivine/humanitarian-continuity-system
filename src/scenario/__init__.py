@@ -14,6 +14,12 @@ from src.scenario.orchestration import (
     ScenarioOrchestrationError,
     ScenarioRunResult,
 )
+from src.scenario.replay import (
+    ReplayError,
+    ReplayRecord,
+    ReplayVerification,
+    ScenarioReplayEngine,
+)
 from src.scenario.resource_overcommitment import (
     ResourceOvercommitmentScenarioOrchestrator,
 )
@@ -31,7 +37,11 @@ __all__ = [
     "BlockedVolunteerScenarioOrchestrator",
     "InsufficientEvidenceScenarioOrchestrator",
     "ResidentialFireScenarioOrchestrator",
+    "ReplayError",
+    "ReplayRecord",
+    "ReplayVerification",
     "ResourceOvercommitmentScenarioOrchestrator",
+    "ScenarioReplayEngine",
     "ScenarioOrchestrationError",
     "ScenarioRunResult",
     "SupersededPlanScenarioOrchestrator",
