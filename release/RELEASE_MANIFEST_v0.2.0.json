@@ -1,0 +1,24 @@
+{
+    "project":  "humanitarian-continuity-system",
+    "version":  "0.2.0",
+    "classification":  "PUBLIC_REFERENCE",
+    "status":  "RELEASE_CANDIDATE",
+    "owner":  "The9izDivine",
+    "baseline_commit":  "55230e9e60b4ed193300e56da148832b41cb7681",
+    "verification":  {
+                         "tests_passed":  80,
+                         "deterministic_scenarios":  6,
+                         "json_schemas":  8,
+                         "yaml_policies":  5
+                     },
+    "canonical_decisions":  [
+                                "CLEARED_FOR_DISPATCH",
+                                "BLOCKED",
+                                "SUPERSEDED",
+                                "INSUFFICIENT_EVIDENCE"
+                            ],
+    "synthetic_data_only":  true,
+    "operational_use_authorized":  false,
+    "external_affiliation_claimed":  false,
+    "orynth_property_transferred":  false
+}
