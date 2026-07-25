@@ -1,3 +1,6 @@
-"""Canonical package version."""
+"""Canonical development version."""
 
-VERSION = "0.2.0"
+VERSION = "0.3.0.dev0"
+DISPLAY_VERSION = "0.3.0-dev"
+RELEASE_LINE = "0.3.0"
+DEVELOPMENT_STATE = "MULTI_DOMAIN_DEVELOPMENT"
